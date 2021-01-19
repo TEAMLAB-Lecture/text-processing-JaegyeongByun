@@ -35,26 +35,25 @@ def normalize(input_string):
     """
 
     normalized_string = ''
-    # 앞뒤 필요없는 띄어쓰기는 제거해야함
     
     if input_string:
         if input_string[0] == ' ':
-            space = True
+            prev_is_space = True
         else:
-            space = False
+            prev_is_space = False
             normalized_string += input_string[0].lower()
 
     for string in input_string[1:]:
         string = string.lower()
-        if space == True:
+        if prev_is_space == True:
             if string == ' ':
                 continue
             else:
-                space = False
+                prev_is_space = False
                 normalized_string += string
         else:
             if string == ' ':
-                space = True
+                prev_is_space = True
             normalized_string += string
 
     if normalized_string and normalized_string[-1] == ' ':
@@ -85,7 +84,7 @@ def no_vowels(input_string):
             ''W lv Pythn!'
     """
 
-    vowel = ['a', 'e', 'i', 'o', 'u']
+    vowel = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
     no_vowel_string = ''
     for string in input_string:
         if string in vowel:
