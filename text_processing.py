@@ -37,11 +37,12 @@ def normalize(input_string):
     normalized_string = ''
     # 앞뒤 필요없는 띄어쓰기는 제거해야함
     
-    if input_string[0] == ' ':
-        space = True
-    else:
-        space = False
-        normalized_string += input_string[0].lower()
+    if input_string:
+        if input_string[0] == ' ':
+            space = True
+        else:
+            space = False
+            normalized_string += input_string[0].lower()
 
     for string in input_string[1:]:
         string = string.lower()
@@ -56,7 +57,7 @@ def normalize(input_string):
                 space = True
             normalized_string += string
 
-    if normalized_string[-1] == ' ':
+    if normalized_string and normalized_string[-1] == ' ':
         normalized_string = normalized_string[:-1]
     
     return normalized_string
