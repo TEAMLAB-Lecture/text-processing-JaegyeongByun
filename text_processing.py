@@ -35,6 +35,18 @@ def normalize(input_string):
     """
 
     normalized_string = ''
+    # 앞뒤 필요없는 띄어쓰기는 제거
+    input_string.strip()
+    input_string_splited = input_string.split(' ')
+    for string in input_string_splited:
+        if string != '':
+            normalized_string += string.lower() + ' '
+
+    normalized_string = normalized_string[:-1]
+    
+    return normalized_string
+
+"""    normalized_string = ''
     
     if input_string:
         if input_string[0] == ' ':
@@ -59,7 +71,7 @@ def normalize(input_string):
     if normalized_string and normalized_string[-1] == ' ':
         normalized_string = normalized_string[:-1]
     
-    return normalized_string
+    return normalized_string"""
 
 
 def no_vowels(input_string):
