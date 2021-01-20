@@ -33,8 +33,45 @@ def normalize(input_string):
              >>> tp.normalize(input_string2)
              'extra space'
     """
-    normalized_string = None
+
+    normalized_string = ''
+    # 앞뒤 필요없는 띄어쓰기는 제거
+    input_string.strip()
+    input_string_splited = input_string.split(' ')
+    for string in input_string_splited:
+        if string != '':
+            normalized_string += string.lower() + ' '
+
+    normalized_string = normalized_string[:-1]
+    
     return normalized_string
+
+"""    normalized_string = ''
+    
+    if input_string:
+        if input_string[0] == ' ':
+            prev_is_space = True
+        else:
+            prev_is_space = False
+            normalized_string += input_string[0].lower()
+
+    for string in input_string[1:]:
+        string = string.lower()
+        if prev_is_space == True:
+            if string == ' ':
+                continue
+            else:
+                prev_is_space = False
+                normalized_string += string
+        else:
+            if string == ' ':
+                prev_is_space = True
+            normalized_string += string
+
+    if normalized_string and normalized_string[-1] == ' ':
+        normalized_string = normalized_string[:-1]
+    
+    return normalized_string"""
 
 
 def no_vowels(input_string):
@@ -58,5 +95,12 @@ def no_vowels(input_string):
             >>> tp.normalize(input_string2)
             ''W lv Pythn!'
     """
-    no_vowel_string = None
+
+    vowel = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+    no_vowel_string = ''
+    for string in input_string:
+        if string in vowel:
+            continue
+        no_vowel_string += string
+
     return no_vowel_string
